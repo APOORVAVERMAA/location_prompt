@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="location"></div>
+    <script>
+        var database1 = [
+            { location: "PUNJAB" },
+            { location: "HARYANA" },
+            { location: "CHANDIGARH" }
+        ];
+
+        let database2 = [
+            { username: "apoorva", password: "apoorva1" },
+            { username: "sneha", password: "sneha1" },
+            { username: "maahi", password: "maahi1" },
+            { username: "shubham", password: "shubham1" },
+            { username: "alia", password: "alia1" },
+            { username: "karan", password: "karan1" },
+            { username: "anmol", password: "anmol1" },
+            { username: "ananya", password: "ananya1" },
+            { username: "anushka", password: "anushka1" },
+            { username: "shreya", password: "shreya1" }
+        ];
+
+        let locationPrompt = prompt("PLEASE ENTER YOUR CURRENT LOCATION");
+
+        function isLocationValid(location) {
+            for (var i = 0; i < database1.length; i++) {
+                if (database1[i].location === location.toUpperCase()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function isUserValid(username, password) {
+            for (var i = 0; i < database2.length; i++) {
+                if (database2[i].username === username && database2[i].password === password) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        if (isLocationValid(locationPrompt)) {
+            let userNamePrompt = prompt("Please enter your username");
+            let passwordPrompt = prompt("Please enter your password");
+
+            if (isUserValid(userNamePrompt, passwordPrompt)) {
+                alert("Welcome, " + userNamePrompt + "!");
+
+                let element = document.getElementById("location");
+                let userLocation = locationPrompt.toUpperCase();
+
+                if (userLocation === "PUNJAB") {
+                    element.innerHTML = "Welcome to Punjab";
+                    element.innerHTML += "<br>";
+                    element.innerHTML += "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501850.964508368!2d72.76797389603512!3d31.00461331973395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964aa569e7355%3A0x8fbd263103a38861!2sPunjab!5e0!3m2!1sen!2sin!4v1722405948441!5m2!1sen!2sin' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>";
+                } else if (userLocation === "HARYANA") {
+                    element.innerHTML = "Welcome to Haryana";
+                    element.innerHTML += "<br>";
+                    element.innerHTML += "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563977.8074237383!2d73.39608329825731!3d29.26919980545635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390db00b8670400b%3A0x732eaab4aaa6c143!2sHaryana!5e0!3m2!1sen!2sin!4v1722406509429!5m2!1sen!2sin' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>";
+                } else if (userLocation === "CHANDIGARH") {
+                    element.innerHTML = "Welcome to Chandigarh";
+                    element.innerHTML += "<br>";
+                    element.innerHTML += "<iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109744.05905737827!2d76.68831051322432!3d30.732401984935624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ec96b%3A0xa5ff67f9527319fe!2sChandigarh!5e0!3m2!1sen!2sin!4v1722406650154!5m2!1sen!2sin' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>";
+                }
+            } else {
+                alert("Invalid username or password");
+            }
+        } else {
+            alert("SORRY, YOU ARE NOT ALLOWED TO ACCESS OUR WEBSITE");
+        }
+    </script>
+</body>
+
+</html>
